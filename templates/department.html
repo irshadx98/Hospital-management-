@@ -1,0 +1,22 @@
+{% extends "Base.html" %}
+
+{% block title %}
+Department
+{% endblock  %}
+
+{% block Content %}
+<h1 class="text-center text-white">Our Department</h1>
+<hr class="w-50 mx-auto">
+{% for d in dept %}
+
+   <div class="d-flex flex-column align-items-center justify-content-center text-center bg-dark text-white p-3" style="min-height: 30vh;">
+    <h1 class="display-4">{{d.dep_name}}</h1>
+    <p class="lead">{{d.dep_desription}}</p>
+   </div>
+    <body>
+    <img src="/samp" alt="">
+    </body>
+
+{% endfor %}
+
+{% endblock %}

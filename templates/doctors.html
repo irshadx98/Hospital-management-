@@ -1,0 +1,12 @@
+{% extends "Base.html" %}
+
+{% block title %}
+Doctors
+{% endblock  %}
+
+{% block Content %}
+<h1>Doctors<h1>
+{% for in doctors %}
+<h1>{{d.doc_name}}</h1>
+{% endfor %}
+{% endblock  %}
