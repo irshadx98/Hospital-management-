@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from home import views  # Import views from your app
+from home import views  #Import views from your app
 
 urlpatterns = [
     path('admin/', admin.site.urls),

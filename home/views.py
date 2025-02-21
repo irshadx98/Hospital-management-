@@ -18,12 +18,10 @@ def About(request):
 def Booking(request):
     return render(request,'booking.html')
 
-def Doctors(request):
-    dict_doc ={
-        'doctors':Doctors.objects.all()
-
-    }
-    return render(request,'doctors.html',dict_doc)
+def Doctor(request):
+    
+    doctors=Doctors.objects.all()
+    return render(request,'doctors.html',{"doctors":doctors})
 
 def Contact(request):
     return render(request,'contact.html')
