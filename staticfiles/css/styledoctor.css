@@ -1,0 +1,98 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    color: #ac2a2a;
+}
+
+/* Card Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: auto;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image */
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #d6efff;
+}
+
+/* Card Details */
+.card-details {
+    padding: 15px;
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Card Specialization */
+.card-specialization {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+/* Card Department */
+.card-department {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .card-image {
+        height: 150px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}

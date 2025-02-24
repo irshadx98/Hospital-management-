@@ -18,10 +18,12 @@ def About(request):
 def Booking(request):
     return render(request,'booking.html')
 
-def Doctor(request):
-    
-    doctors=Doctors.objects.all()
-    return render(request,'doctors.html',{"doctors":doctors})
+from django.shortcuts import render
+from .models import Doctors  # Import the Doctors model
+
+def doctors_view(request):
+    doctors = Doctors.objects.all()  # Fetch all doctors from the database
+    return render(request, 'doctors.html', {'doctors': doctors})
 
 def Contact(request):
     return render(request,'contact.html')

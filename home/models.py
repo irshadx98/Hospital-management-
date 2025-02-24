@@ -10,10 +10,12 @@ class Departments(models.Model):
         return self.dep_name
 
 
+
+
+from django.db import models
+
 class Doctors(models.Model):
     name = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
     department = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
+    image = models.ImageField(upload_to='doctors/', null=True, blank=True)  # Allow null and blank
