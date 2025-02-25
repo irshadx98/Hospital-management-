@@ -1,9 +1,110 @@
 {% extends "Base.html" %}
 
 {% block title %}
-Contacts
-{% endblock  %}
+    Contact Us - City Hospital
+{% endblock %}
 
 {% block Content %}
-<h1>Contacts<h1>
-{% endblock  %}
+<!-- Banner Section -->
+<div class="banner">
+    <h1 class="display-4 fw-bold">Get in Touch</h1>
+</div>
+
+<!-- Contact Information Section -->
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="info-box">
+                <i class="fas fa-phone fa-2x text-primary"></i>
+                <h5 class="mt-3">Emergency Contact</h5>
+                <p class="text-muted">+91 9977886655</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box">
+                <i class="fas fa-envelope fa-2x text-primary"></i>
+                <h5 class="mt-3">Email Us</h5>
+                <p class="text-muted">contact@cityhospital.com</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                <h5 class="mt-3">Visit Us</h5>
+                <p class="text-muted">123 Health Street, City, Country</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Form Section -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="contact-form p-4 rounded shadow">
+                <h2 class="text-center mb-4">Send Us a Message</h2>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-5 py-3 bg-dark text-white">
+    &copy; 2024 City Hospital. All Rights Reserved.
+</footer>
+
+<!-- CSS Styles -->
+<style>
+    .banner {
+        background: url('https://source.unsplash.com/1600x600/?hospital,medical') no-repeat center center;
+        background-size: cover;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        font-weight: bold;
+    }
+    .banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .info-box {
+        padding: 20px;
+        border-radius: 10px;
+        background: #f8f9fa;
+        transition: 0.3s;
+    }
+    .info-box:hover {
+        background: #e9ecef;
+        transform: scale(1.05);
+    }
+    .contact-form {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}

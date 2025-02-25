@@ -1,9 +1,19 @@
 {% extends "Base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}
-Booking
-{% endblock  %}
+    Booking
+{% endblock %}
 
 {% block Content %}
-<h1>Appointments<h1>
-{% endblock  %}
+<h1 class="text-center">Make An Appointment</h1>
+<hr>
+
+<div class="container w-50 text-center my-5">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

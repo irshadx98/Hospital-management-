@@ -44,6 +44,25 @@ Home
 {% endblock %}
 
 <style>
+    /* Remove extra white space at the bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Ensure the content takes full height */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Push footer to the bottom */
+#footer {
+    margin-top: auto;
+}
+
     /* Desktop Carousel */
     .desktop-carousel .carousel-inner {
         height: 60vh;
@@ -72,6 +91,8 @@ Home
     .carousel-control-prev,
     .carousel-control-next {
         width: 5%;
+    
+        
     }
 </style>
 

@@ -25,7 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',  # Your custom app
+    'home',  #  custom app
+    'crispy_forms', 
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -43,10 +45,11 @@ ROOT_URLCONF = 'sampleprojects.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Templates directory
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],  
+        'APP_DIRS': True, 
         'OPTIONS': {
             'context_processors': [
+               
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -55,6 +58,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'sampleprojects.wsgi.application'
 
@@ -78,3 +83,4 @@ USE_I18N = True
 USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CRISPY_TEMPLATE_PACK = 'Bootstrap5'
