@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -31,3 +32,13 @@ class Booking(models.Model):
     doc_name = models.ForeignKey(Doctors, on_delete=models.CASCADE)
     booking_date = models.DateField()
     booked_on = models.DateField(auto_now=True)
+
+
+from django.db import models
+from django.utils import timezone  # ✅ Correct Import
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    submitted_on = models.DateTimeField(default=timezone.now)

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Departments
 from .models import Doctors
 from .forms import BookingForm
+from .models import Feedback
 
 def index(request):
     person= {
@@ -41,8 +42,6 @@ def doctors_view(request):
     doctors = Doctors.objects.all()  
     return render(request, 'doctors.html', {'doctors': doctors})
 
-def Contact(request):
-    return render(request,'contact.html')
 
 def Department(request):
     dict_dept={
@@ -50,5 +49,17 @@ def Department(request):
     }
     return render(request,'department.html',dict_dept)
 
+
+def Contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+        
+        if name and email and message:
+            Feedback.objects.create(name=name, email=email, message=message)
+            return redirect("/contact")  
+
+    return render(request, "contact.html")
 
 

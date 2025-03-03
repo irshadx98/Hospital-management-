@@ -13,9 +13,13 @@ urlpatterns = [
     path('About/', views.About, name='About'),
     path('Booking/', views.Booking, name='Booking'),
     path('Doctors/', views.doctors_view, name='Doctors'),  # Updated function name
-    path('Contact/', views.Contact, name='Contact'),
+    path('contact/', views.Contact, name='contact'),
     path('Department/', views.Department, name='Department'),
 ]
 # Add media URL patterns for development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# urlpatterns = [
+#     path('contact/', views.Contact, name='contact'), 
+# ]    
