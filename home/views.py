@@ -28,7 +28,7 @@ def Booking(request):
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'home/confirmation.html')
+            # return render(request, 'confirmation.html')
     form = BookingForm()
     dict_form={
         'form': form
