@@ -61,5 +61,6 @@ def Contact(request):
             return redirect("/contact")  
 
     return render(request, "contact.html")
-
+def analytics_dashboard(request):
+    return render(request, 'hospital_analytics/dashboard.html')
 

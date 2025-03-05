@@ -1,27 +1,92 @@
 {% extends "Base.html" %}
 {% load static %}
 
-{% block title %}
-Doctors
-{% endblock %}
+{% block title %}Doctors{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/styledoctor.css' %}">
+<style>
+    /* Add these styles to your styledoctor.css file */
+    .doctor--card {
+        height: 100%;
+        transition: transform 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .doctor--card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card--image {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card--details {
+        padding: 1.5rem;
+        background: #fff;
+    }
+
+    .card--title {
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .card--specialization {
+        color: #e74c3c;
+        font-weight: 500;
+    }
+
+    .card--department {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+    }
+
+    .page--ttle {
+        color: #2c3e50;
+        font-weight: 700;
+        margin: 2rem 0;
+        text-align: center;
+        border: #7f8c8d;
+    }
+
+    @media (max-width: 768px) {
+        .card-image {
+            height: 200px;
+        }
+        
+        .doctor--card {
+            margin-bottom: 1.5rem;
+        }
+    }
+</style>
 {% endblock %}
 
 {% block Content %}
-<h1 class="page-title">Our Doctors</h1>
-
-<div class="card-container">
-    {% for doctor in doctors %}
-    <div class="card">
-        <img class="card-image" src="{% if doctor.image %}{{ doctor.image.url }}{% else %}{% static 'images/default-doctor.jpg' %}{% endif %}" alt="Doctor Image">
-        <div class="card-details">
-            <h2 class="card-title">{{ doctor.name }}</h2>
-            <p class="card-specialization">{{ doctor.specialization }}</p>
-            <p class="card-department">{{ doctor.department }}</p>
+<div class="container py-5">
+    <h1 class= " page--ttle border">Our Medical Specialists</h1>
+    <hr>
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for doctor in doctors %}
+        <div class="col">
+            <div class="doctor--card">
+                <img class="card--image w-100" 
+                     src="{% if doctor.image %}{{ doctor.image.url }}{% else %}{% static 'images/default-doctor.jpg' %}{% endif %}" 
+                     alt="Dr. {{ doctor.name }}">
+                <div class="card-details">
+                    <h2 class="card--title">Dr. {{ doctor.name }}</h2>
+                    <p class="card--specialization">{{ doctor.specialization }}</p>
+                    <p class="card--department">{{ doctor.department }}</p>
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

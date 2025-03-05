@@ -13,6 +13,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Collect static files for 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]  # For development
+
 #  Django Default Settings
 SECRET_KEY = 'django-insecure-w_5-u(!nf@#lr==sm3c832)x#-0$1lvcm+t0zr%(&t@xk2(%@5'
 DEBUG = True
@@ -28,6 +31,7 @@ INSTALLED_APPS = [
     'home',  #  custom app
     'crispy_forms', 
     'crispy_bootstrap5',
+    'hospital_analytics',
 ]
 
 MIDDLEWARE = [
