@@ -19,7 +19,7 @@ class Doctors(models.Model):
     name = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
     department = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='doctors/', null=True, blank=True)  # Allow null and blank
+    image = models.ImageField(upload_to='doctors/', null=True, blank=True)  
 
     def __str__(self):
         return 'Dr '+ self.name + ' -('+ self.specialization + ')'
@@ -35,10 +35,22 @@ class Booking(models.Model):
 
 
 from django.db import models
-from django.utils import timezone  # ✅ Correct Import
+from django.utils import timezone  
 
 class Feedback(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()
     submitted_on = models.DateTimeField(default=timezone.now)
+
+
+
+class Appointment(models.Model):
+    patient_name = models.CharField(max_length=100)
+    patient_email = models.EmailField()
+    patient_phone = models.CharField(max_length=15)
+    appointment_date = models.DateField()
+    doctor = models.ForeignKey(Doctors, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.patient_name} - {self.doctor.name}"

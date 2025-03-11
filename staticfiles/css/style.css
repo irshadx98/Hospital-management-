@@ -1,4 +1,43 @@
-li:hover{
-    background-color: gray;
+/* Ensure the entire page background is black */
+body {
+    background-color: black !important;
+}
+
+/* Make container full width */
+.container-fluid {
+    width: 100%;
+    background-color: blue;
+}
+
+/* Card Styling */
+.card {
+    position: relative; /* Needed for overlay */
+    box-shadow: 0 8px 32px rgba(233, 5, 5, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3); /* More visible */
+}
+
+/* Hover Overlay */
+.card-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Ensure it's above other elements */
+}
+
+/* Ensure overlay appears on hover */
+.card:hover .card-hover-overlay {
+    opacity: 1;
 }

@@ -4,6 +4,8 @@ from .models import Departments
 from .models import Doctors
 from .forms import BookingForm
 from .models import Feedback
+from django.shortcuts import render, get_object_or_404
+from .forms import BookingFormm
 
 def index(request):
     person= {
@@ -63,4 +65,20 @@ def Contact(request):
     return render(request, "contact.html")
 def analytics_dashboard(request):
     return render(request, 'hospital_analytics/dashboard.html')
+
+
+def book_doctor(request, doctor_id):
+    doctor = get_object_or_404(Doctors, id=doctor_id)
+    if request.method == 'POST':
+        form = BookingFormm(request.POST)
+        if form.is_valid():
+            appointment = form.save(commit=False)
+            appointment.doctor = doctor
+            appointment.save()
+            return redirect('success_page')  # Redirect to a success page
+    else:
+        form = BookingForm(initial={'doctor': doctor})
+    
+    return render(request, 'booking.html', {'form': form, 'doctor': doctor})
+
 
