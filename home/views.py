@@ -48,18 +48,20 @@ def Contact(request):
         message = request.POST.get("message")
         
         if name and email and message:
+            # Save the feedback to the database
             Feedback.objects.create(name=name, email=email, message=message)
-            return redirect("/contact")  
+            # Add a success message
+            messages.success(request, 'Thank you for your feedback! We will get back to you soon.')
+            # Redirect to the same page to avoid form resubmission
+            return redirect('contact')  # Replace 'contact' with the name of your URL pattern for this view
 
     return render(request, "contact.html")
-def analytics_dashboard(request):
-    return render(request, 'hospital_analytics/dashboard.html')
-
 def Booking(request):
     if request.method == "POST":
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your booking has been successfully submitted!')
             
     form = BookingForm()
     dict_form={
@@ -86,6 +88,7 @@ def book_doctor(request, doctor_id):
             appointment.doc_name = doctor
            
             appointment.save()
+            messages.success(request, 'Your appointment has been successfully booked!')
            
             return redirect('doctors')
         else:
@@ -94,8 +97,7 @@ def book_doctor(request, doctor_id):
     else:
         
         
-        form = BookingForm()
-        form.fields.pop('doc_name', None)
+       form = BookingForm(initial={'doc_name': doctor})
     
     
-    return render(request, 'booking.html', {'form': form, 'doctor': doctor})
+    return render(request, 'Appointment.html', {'form': form, 'doctor': doctor})
