@@ -1,4 +1,4 @@
-{% extends "Base.html" %}
+
 {% load crispy_forms_tags %}
 
 {% block title %}
@@ -11,11 +11,11 @@
     <hr>
 
     <!-- Display Selected Doctor's Details -->
-    <!-- <div class="text-center my-4">
+    <div class="text-center my-4">
         <h3>Appointment with Dr. {{ doctor.name }}</h3>
         <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
         <p><strong>Department:</strong> {{ doctor.department.name }}</p>
-    </div> -->
+    </div>
 
     <!-- Display Success Messages -->
     {% if messages %}

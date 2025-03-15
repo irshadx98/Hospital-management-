@@ -22,10 +22,12 @@ class BookingForm(forms.ModelForm):
             'booking_date': "Date"
         }
 
+
+
 class BookingFormm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ['patient_name', 'patient_email', 'patient_phone', 'appointment_date', 'doctor']
+        fields = ['patient_name', 'patient_email', 'patient_phone', 'appointment_date']
         widgets = {
-            'appointment_date': forms.DateInput(attrs={'type': 'date'}),
+            'appointment_date': forms.DateInput(attrs={'type': 'date'}),  
         }

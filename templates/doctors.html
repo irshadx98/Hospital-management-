@@ -33,6 +33,10 @@
     .card-text {
         font-size: 1rem;
     }
+
+    .text-muted {
+        color: #a0a0a0 !important;
+    }
 </style>
 {% endblock %}
 
@@ -45,13 +49,17 @@
         <div class="col">
             <a href="{% url 'book_doctor' doctor.id %}" style="text-decoration: none;">
                 <div class="card h-100">
+                    <!-- Doctor Image -->
                     <img src="{% if doctor.image %}{{ doctor.image.url }}{% else %}{% static 'images/default-doctor.jpg' %}{% endif %}" 
                          class="card-img-top" 
                          alt="Dr. {{ doctor.name }}">
                     <div class="card-body">
+                        <!-- Doctor Name -->
                         <h5 class="card-title">Dr. {{ doctor.name }}</h5>
+                        <!-- Doctor Specialization -->
                         <p class="card-text">{{ doctor.specialization }}</p>
-                        <p class="text-muted">{{ doctor.department }}</p>
+                        <!-- Doctor Department -->
+                        <p class="text-muted">{{ doctor.department.name }}</p>
                     </div>
                 </div>
             </a>

@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from .views import book_doctor
 
 
+
 # # Define your URL patterns
 # from django.urls import path
 # from . import views
@@ -17,7 +18,8 @@ urlpatterns = [
     path('Doctors/', views.doctors_view, name='Doctors'),  
     path('contact/', views.Contact, name='contact'),
     path('Department/', views.Department, name='Department'),
-    path('book/<int:doctor_id>/', book_doctor, name='book_doctor'),
+    path('doctors/', views.doctors_view, name='doctors'),
+    path('book_doctor/<int:doctor_id>/', views.book_doctor, name='book_doctor'), 
 ]
 # Add media URL patterns for development
 if settings.DEBUG:
